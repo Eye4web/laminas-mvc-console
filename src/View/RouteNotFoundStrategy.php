@@ -301,7 +301,7 @@ class RouteNotFoundStrategy extends AbstractListenerAggregate
                     if (($tableCols !== 2 || $tableType !== 1) && !empty($table)) {
                         // render last table
                         $result .= $this->renderTable($table, $tableCols, $console->getWidth());
-                        $table   = false;
+                        $table   = [];
 
                             // add extra newline for clarity
                         $result .= "\n";
@@ -324,7 +324,7 @@ class RouteNotFoundStrategy extends AbstractListenerAggregate
                     if (($count !== $tableCols || $tableType !== 2) && !empty($table)) {
                         // render last table
                         $result .= $this->renderTable($table, $tableCols, $console->getWidth());
-                        $table   = false;
+                        $table   = [];
 
                         // add extra newline for clarity
                         $result .= "\n";
@@ -342,7 +342,7 @@ class RouteNotFoundStrategy extends AbstractListenerAggregate
                 if (!empty($table)) {
                     // render last table
                     $result .= $this->renderTable($table, $tableCols, $console->getWidth());
-                    $table   = false;
+                    $table   = [];
 
                     // add extra newline for clarity
                     $result .= "\n";
