@@ -275,7 +275,7 @@ class RouteNotFoundStrategy extends AbstractListenerAggregate
          * Transform arrays in usage info into columns, otherwise join everything together
          */
         $result    = '';
-        $table     = false;
+        $table     = [];
         $tableCols = 0;
         $tableType = 0;
         foreach ($usageInfo as $moduleName => $usage) {
@@ -354,7 +354,7 @@ class RouteNotFoundStrategy extends AbstractListenerAggregate
         }
 
         // Finish last table
-        if ($table !== false) {
+        if (!empty($table)) {
             $result .= $this->renderTable($table, $tableCols, $console->getWidth());
         }
 
