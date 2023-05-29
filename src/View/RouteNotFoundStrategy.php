@@ -298,7 +298,7 @@ class RouteNotFoundStrategy extends AbstractListenerAggregate
                  * 'invocation method' => 'explanation'
                  */
                 if (is_string($a) && is_string($b)) {
-                    if (($tableCols !== 2 || $tableType !== 1) && $table !== false) {
+                    if (($tableCols !== 2 || $tableType !== 1) && !empty($table)) {
                         // render last table
                         $result .= $this->renderTable($table, $tableCols, $console->getWidth());
                         $table   = false;
@@ -321,7 +321,7 @@ class RouteNotFoundStrategy extends AbstractListenerAggregate
                  */
                 if (is_array($b)) {
                     $count = count($b);
-                    if (($count !== $tableCols || $tableType !== 2) && $table !== false) {
+                    if (($count !== $tableCols || $tableType !== 2) && !empty($table) {
                         // render last table
                         $result .= $this->renderTable($table, $tableCols, $console->getWidth());
                         $table   = false;
@@ -339,7 +339,7 @@ class RouteNotFoundStrategy extends AbstractListenerAggregate
                 /*
                  * 'A single line of text'
                  */
-                if ($table !== false) {
+                if (!empty($table)) {
                     // render last table
                     $result .= $this->renderTable($table, $tableCols, $console->getWidth());
                     $table   = false;
